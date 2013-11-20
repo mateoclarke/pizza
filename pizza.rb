@@ -1,11 +1,13 @@
 module Pizza
   class Pie	
-  	attr_accessor :toppings, :name
+  	attr_accessor :toppings
 
   	def initialize(toppings=[Pizza::Topping.new('cheese', vegetarian: true)])
-  	@toppings = toppings
-  	@name = name
+	  	@toppings = toppings
 
+  	end
+  	def vegetarian?
+  		@toppings.all? { |topping| topping.vegetarian }
   	end
   end
 
