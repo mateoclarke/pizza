@@ -31,6 +31,21 @@ describe Pizza::Pie do
 			expect(pizza.vegetarian?).to eq(true)
 		end
 	end
+
+	describe '#add_topping' do
+		it 'adds a topping to a pizza' do
+			toppings = [
+				Pizza::Topping.new('mushrooms', vegetarian: true),
+				Pizza::Topping.new('pepperoni')
+			]
+			pizza = Pizza::Pie.new(toppings)
+
+			pineapple = Pizza::Topping.new('pineapple')
+			pizza.add_topping(pineapple)
+
+			expect(pizza.toppings.length).to eq(3)
+		end
+	end
 end 
 
 describe Pizza::Topping do
