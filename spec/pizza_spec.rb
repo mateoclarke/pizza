@@ -10,6 +10,7 @@ describe Pizza::Pie do
 				Pizza::Topping.new('mushrooms', vegetarian: true),
 				Pizza::Topping.new('pepperoni')
 			]
+
 			pizza = Pizza::Pie.new(toppings)
 
 			expect(pizza.toppings).to eq(toppings)
@@ -20,6 +21,15 @@ describe Pizza::Pie do
 
 			expect(pizza.toppings.size).to eq(1)
 			expect(pizza.toppings.first.name).to eq('cheese')
+		end
+	end
+	
+	describe '#vegetarian?' do
+		it 'checks whether all the toppinga on a pizza are vegetarian' do
+
+			vegetarian = Pizza::Pie.vegetarian?
+
+			expect(pizza.vegetarian?).to eq(true)
 		end
 	end
 end 
